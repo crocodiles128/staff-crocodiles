@@ -1,0 +1,9 @@
+{require: EQUIPE}
+{!role add $1 <@&744314232761221140>}
+{!role remove $1 <@&868926605869854751>}
+{!announce 1266982475410837577 **Usuário: <@$1> ($1)
+Tipo: Desmute
+Motivo: $2+
+Quem: {user}**}
+{dm:$1} <@$1> **Seu mute foi removido.**
+**Motivo:** $2+
