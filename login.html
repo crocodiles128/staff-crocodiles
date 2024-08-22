@@ -27,7 +27,10 @@
 
         const data = await response.json();
         if (data.records.length > 0) {
-          localStorage.setItem('authToken', data.records[0].id); // Armazenar ID do registro como token
+          const user = data.records[0];
+          const userName = user.fields['Name']; // Assumindo que o nome está no campo 'Name'
+          localStorage.setItem('authToken', user.id); // Armazenar ID do registro como token
+          localStorage.setItem('userName', userName); // Armazenar nome do usuário
           window.location.href = '/staff-crocodiles/index.html'; // Redireciona para a página de conteúdo
         } else {
           alert('Credenciais inválidas');
