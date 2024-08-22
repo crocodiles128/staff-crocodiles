@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Adivinhação</title>
+  <script>
+    let secretNumber;
+    let attempts = 3;
+    let userId = ''; // Armazena o ID do usuário
+
+    function startGame() {
+      // Inicializa o número secreto aleatório
+      secretNumber = Math.floor(Math.random() * 100) + 1;
+      attempts = 3; // Resetar tentativas
+      document.getElementById('message').textContent = 'Adivinhe um número entre 1 e 100!';
+      document.getElementById('user-id-container').style.display = 'none';
+      document.getElementById('game-container').style.display = 'block';
+    }
+
+    function setUserId() {
+      userId = document.getElementById('user-id').value;
+      if (!userId) {
+        document.getElementById('message').textContent = 'Por favor, insira seu ID do Discord.';
+        return;
+      }
+      document.getElementById('user-id-container').style.display = 'none';
+      document.getElementById('game-container').style.display = 'block';
+      startGame();
+    }
+
+    async function submitGuess() {
+      const guess = parseInt(document.getElementById('guess').value, 10);
+      
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        document.getElementById('message').textContent = 'Por favor, insira um número entre 1 e 100.';
+        return;
+      }
+
+      attempts--;
+      if (guess === secretNumber) {
+        document.getElementById('message').textContent = 'Parabéns! Você acertou!';
+        await applyRole(); // Aplica o cargo
+        return;
+      }
+
+      if (attempts <= 0) {
+        document.getElementById('message').textContent = 'Suas tentativas acabaram! O número era ' + secretNumber + '.';
+        return;
+      }
+
+      const hint = guess < secretNumber ? 'maior' : 'menor';
+      document.getElementById('message').textContent = `O número é ${hint}. Você ainda tem ${attempts} tentativas.` + secretNumber + '';
+    }
+
+    async function applyRole() {
+      const roleId = '955581994002182144'; // Substitua com o ID do cargo
+      const guildId = '726824045819199518'; // Substitua com o ID do servidor
+
+      try {
+        const response = await fetch('https://511a7405-adec-4cb6-8953-5f985b97d718-00-17dejpfa62lln.riker.replit.dev/apply-role', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userId: userId,
+            roleId: roleId,
+            guildId: guildId
+          })
+        });
+
+        if (response.ok) {
+          document.getElementById('message').textContent += ' O cargo foi aplicado.';
+          setTimeout(async () => {
+            await removeRole(); // Remove o cargo após 24 horas
+          }, 24 * 60 * 60 * 1000); // 24 horas em milissegundos
+        } else {
+          const errorText = await response.text();
+          document.getElementById('message').textContent = 'Erro ao aplicar o cargo: ' + errorText;
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+        document.getElementById('message').textContent = 'Erro ao aplicar o cargo: ' + error.message;
+      }
+    }
+
+    async function removeRole() {
+      const roleId = '955581994002182144'; // Substitua com o ID do cargo
+      const guildId = '726824045819199518'; // Substitua com o ID do servidor
+
+      try {
+        const response = await fetch('https://511a7405-adec-4cb6-8953-5f985b97d718-00-17dejpfa62lln.riker.replit.dev/remove-role', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userId: userId,
+            roleId: roleId,
+            guildId: guildId
+          })
+        });
+
+        if (response.ok) {
+          console.log('Cargo removido com sucesso.');
+        } else {
+          const errorText = await response.text();
+          console.error('Erro ao remover o cargo:', errorText);
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Jogo de Adivinhação</h1>
+  <div id="user-id-container">
+    <label for="user-id">Seu ID do Discord:</label>
+    <input type="text" id="user-id" placeholder="Digite seu ID">
+    <button onclick="setUserId()">Iniciar Jogo</button>
+  </div>
+  <div id="game-container" style="display: none;">
+    <input type="number" id="guess" min="1" max="100" placeholder="Digite seu palpite">
+    <button onclick="submitGuess()">Submeter Palpite</button>
+    <p id="message"></p>
+  </div>
+</body>
+</html>

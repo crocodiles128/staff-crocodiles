@@ -22,28 +22,6 @@
   <!-- MDB -->
   <link rel="stylesheet" href="/css/css/mdb.min.css" />
   <title>Portal da EQUIPE</title>
-  <script>
-    // Função para verificar se o usuário está autenticado
-    function checkAuth() {
-      const token = localStorage.getItem('authToken');
-      if (!token) {
-        window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login se não estiver autenticado
-      }
-    }
-
-    // Função para fazer logout
-    function logout() {
-      localStorage.removeItem('authToken'); // Remove o token de autenticação
-      window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      checkAuth(); // Verifica a autenticação ao carregar a página
-
-      // Adiciona evento de logout ao botão de logout
-      document.getElementById('logoutButton').addEventListener('click', logout);
-    });
-  </script>
 </head>
 
 <body>
@@ -69,7 +47,6 @@
         <span class="navbar-text">
           CROCODILES🐊: a gama de servidores para criar amizades
         </span>
-        <button id="logoutButton" class="btn btn-danger ms-2">Logout</button>
       </div>
     </div>
   </nav>
