@@ -67,7 +67,8 @@
                         <a class="nav-link active" href="/staff-crocodiles/moderacao-home.html">Moderação</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/staff-crocodiles/promotoria-de-eventos.html">Promotoria de Eventos</a>
+                        <a class="nav-link" href="/staff-crocodiles/promotoria-de-eventos.html">Promotoria de
+                            Eventos</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
@@ -118,7 +119,20 @@
               <div class="card card-horizontal" id="card-${appealId}">
                 <div class="card-body">
                   <h5 class="card-title">Título: ${appealTitle}</h5>
-                  <p class="card-text">${descricao}</p>
+                  <div class="accordion accordion-flush" id="accordionFlushExample-${appealId}">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button btn btn-secondary collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapse-${appealId}" aria-expanded="false" aria-controls="flush-collapse-${appealId}">
+                          Descrição do apelo
+                        </button>
+                      </h2>
+                      <div id="flush-collapse-${appealId}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample-${appealId}">
+                        <p class="card-text">${descricao}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
                   <button id="approveButton-${appealId}" class="btn btn-success me-2">Aprovar</button>
                   <button id="denyButton-${appealId}" class="btn btn-danger">Negar</button>
                 </div>
@@ -154,6 +168,14 @@
 
             async function handleVote(recordId, voteField) {
                 try {
+                    const userName = localStorage.getItem('userName');
+                    const votedAppeals = JSON.parse(localStorage.getItem('votedAppeals')) || {};
+
+                    if (votedAppeals[recordId]) {
+                        alert('Você já votou neste apelo.');
+                        return;
+                    }
+
                     // Primeiro, buscar o valor atual do campo de votos
                     const recordResponse = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}/${recordId}`, {
                         method: 'GET',
@@ -182,7 +204,7 @@
                         body: JSON.stringify({
                             fields: {
                                 [voteField]: currentVoteCount + 1,
-                                votantes: currentVotantes ? `${currentVotantes}, ${localStorage.getItem('userName')}` : localStorage.getItem('userName')
+                                votantes: currentVotantes ? `${currentVotantes}, ${userName}` : userName
                             }
                         })
 
@@ -195,6 +217,10 @@
 
                     const updatedData = await updateResponse.json();
                     console.log('Registro atualizado:', updatedData);
+
+                    // Adiciona o ID do apelo aos apelos votados
+                    votedAppeals[recordId] = true;
+                    localStorage.setItem('votedAppeals', JSON.stringify(votedAppeals));
 
                     // Desativa os botões após o voto
                     document.getElementById(`approveButton-${recordId}`).disabled = true;
@@ -237,4 +263,12 @@
     </footer>
 
 </body>
+
 </html>
+<!--
+─────▄████▀█▄
+───▄█████████████████▄
+─▄█████.▼.▼.▼.▼.▼.▼▼▼▼
+▄███████▄.▲.▲▲▲▲▲▲▲▲
+████████████████████▀▀
+-->
