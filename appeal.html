@@ -14,25 +14,25 @@
     <script>
         // Função para verificar se o usuário está autenticado
         function checkAuth() {
-          const token = localStorage.getItem('authToken');
-          if (!token) {
-            window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login se não estiver autenticado
-          }
+            const token = localStorage.getItem('authToken');
+            if (!token) {
+                window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login se não estiver autenticado
+            }
         }
-    
+
         // Função para fazer logout
         function logout() {
-          localStorage.removeItem('authToken'); // Remove o token de autenticação
-          window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login
+            localStorage.removeItem('authToken'); // Remove o token de autenticação
+            window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login
         }
-    
+
         document.addEventListener('DOMContentLoaded', () => {
-          checkAuth(); // Verifica a autenticação ao carregar a página
-    
-          // Adiciona evento de logout ao botão de logout
-          document.getElementById('logoutButton').addEventListener('click', logout);
+            checkAuth(); // Verifica a autenticação ao carregar a página
+
+            // Adiciona evento de logout ao botão de logout
+            document.getElementById('logoutButton').addEventListener('click', logout);
         });
-      </script>
+    </script>
     <style>
         .card-horizontal {
             display: flex;
@@ -67,8 +67,7 @@
                         <a class="nav-link active" href="/staff-crocodiles/moderacao-home.html">Moderação</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/staff-crocodiles/promotoria-de-eventos.html">Promotoria de
-                            Eventos</a>
+                        <a class="nav-link" href="/staff-crocodiles/promotoria-de-eventos.html">Promotoria de Eventos</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
@@ -106,8 +105,11 @@
                     const appealsContainer = document.getElementById('appealsContainer');
                     appealsContainer.innerHTML = '';
 
+                    // Filtra registros onde o status é "Não Finalizado"
+                    const filteredRecords = data.records.filter(record => record.fields['Status'] === 'Não Finalizado');
+
                     // Array para armazenar o HTML dos cartões
-                    const cardsHTML = data.records.map(record => {
+                    const cardsHTML = filteredRecords.map(record => {
                         const appealTitle = record.fields['apelador'];
                         const descricao = record.fields['descricao'];
                         const appealId = record.id;
@@ -128,7 +130,7 @@
                     appealsContainer.innerHTML = cardsHTML;
 
                     // Adicionar listeners aos botões
-                    data.records.forEach(record => {
+                    filteredRecords.forEach(record => {
                         const appealId = record.id;
                         const approveButton = document.getElementById(`approveButton-${appealId}`);
                         const denyButton = document.getElementById(`denyButton-${appealId}`);
@@ -151,7 +153,6 @@
             }
 
             async function handleVote(recordId, voteField) {
-                const userName = 'Luis'; // Substitua pelo nome do usuário logado
                 try {
                     // Primeiro, buscar o valor atual do campo de votos
                     const recordResponse = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}/${recordId}`, {
@@ -235,12 +236,5 @@
         <!-- Copyright -->
     </footer>
 
+</body>
 </html>
-
-<!--
-  ─────▄████▀█▄
-  ───▄█████████████████▄
-  ─▄█████.▼.▼.▼.▼.▼.▼▼▼▼
-  ▄███████▄.▲.▲▲▲▲▲▲▲▲
-  ████████████████████▀▀
-  -->
