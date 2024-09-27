@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet" />
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="/css/css/mdb.min.css" />
+  <title>Portal da EQUIPE</title>
+  <script>
+    // Função para verificar se o usuário está autenticado
+    function checkAuth() {
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login se não estiver autenticado
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+    // Verifica se o usuário está autenticado
+    const userName = localStorage.getItem('userName');
+    
+    // Verifica se o usuário é o Admin
+    if (userName !== 'ErduZaizungs') {
+      // Redireciona para a página inicial se não for Admin
+      window.location.href = '/staff-crocodiles/index.html';
+    }
+    
+    // Aqui você pode carregar os dados específicos do Admin
+    // e exibir as pontuações e resultados.
+  });
+    // Função para fazer logout
+    function logout() {
+      localStorage.removeItem('authToken'); // Remove o token de autenticação
+      window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuth(); // Verifica a autenticação ao carregar a página
+
+      // Adiciona evento de logout ao botão de logout
+      document.getElementById('logoutButton').addEventListener('click', logout);
+    });
+  </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/staff-crocodiles/index.html">CROCODILES🐊</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/staff-crocodiles/index.html">Portal da EQUIPE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/staff-crocodiles/moderacao-home.html">Moderação</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/staff-crocodiles/promotoria-de-eventos.html">Promotoria de Eventos</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          CROCODILES🐊: a gama de servidores para criar amizades
+        </span>
+        <button id="logoutButton" class="btn btn-danger ms-2">Logout</button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Start your project here-->
+<br><br><br><br>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="olá-erduzaizungs-suas-respostas-e-pontuação">Olá ErduZaizungs, suas respostas e pontuação:</h1>
+<ol>
+<li>Cite três regras essenciais do servidor CROCODILES!🐊  e explique a importância de cada uma delas.</li>
+</ol>
+<p>•Proibido ofensas• - Penso que essa seja uma das regras mais importantes para manter um ambiente harmônico e respeitoso</p>
+<p>•chats unicamente com seus propósitos• - Organização é algo que ajuda a ter uma aparência e ajuda a atrair mais membros</p>
+<p>•Evite spam• - Mensagens excessivas em um curto período de tempo atrapalha além de ser irritante.</p>
+<ol start="2">
+<li>Um membro do servidor está postando links suspeitos em um canal de texto. Quais ações você tomaria imediatamente? Justifique sua resposta.</li>
+</ol>
+<ul>
+<li>Se for a primeira vez que esse membro está fazendo isso, o certo é aplicar um time-out de 24 horas. Esse é o procedimento para esse tipo de ocorrência de acordo com o canal Guias.</li>
+</ul>
+<ol start="3">
+<li>Como você lida com um usuário que está promovendo discurso de ódio, mesmo após ser advertido?</li>
+</ol>
+<ul>
+<li>O certo é aplicar um time-out de 24 horas pelo mesmo motivo do item anterior.</li>
+</ul>
+<ol start="4">
+<li>Dois membros do servidor estão discutindo de forma agressiva em um canal de voz. Como você interviria para resolver a situação?</li>
+</ol>
+<ul>
+<li>o primeiro a se fazer é um aviso formal.</li>
+</ul>
+<ol start="5">
+<li>Um membro reclama que foi banido injustamente. Como você procede para garantir que a situação seja avaliada de forma justa?</li>
+</ol>
+<ul>
+<li>Pediria para o membro abrir um ticket e fornecer o máximo de informações para que seja analisado e ter a decisão de deixar ou não banido.</li>
+</ul>
+<ol start="6">
+<li>Descreva um exemplo de uma situação difícil que você já enfrentou como staff e como resolveu o problema.</li>
+</ol>
+<ul>
+<li>Não sabia como como informar onde que um membro podia se registrar. Eu chamei um superior.</li>
+</ul>
+<ol start="7">
+<li>Se você descobrir que outro membro da equipe está abusando de suas permissões, como você lidaria com a situação?</li>
+</ol>
+<ul>
+<li>Eu comentaria com um superior sobre o que está ocorrendo.</li>
+</ul>
+<ol start="8">
+<li>Como você decide quando aplicar uma punição severa, como um banimento, em vez de uma punição mais leve?</li>
+</ol>
+<ul>
+<li>de acordo com o histórico de punições dele isso decide o grau da punição.</li>
+</ul>
+<ol start="9">
+<li>Como você garante que suas ações como staff são imparciais e justas para todos os membros?</li>
+</ol>
+<ul>
+<li>As escolhas que eu me deparo se fossem desrespeitosas eu não teria dúvidas no que fazer mesmo se fosse alguém próximo ou não.</li>
+</ul>
+<ol start="10">
+<li>Explique como você usa as ferramentas de moderação disponíveis no servidor (ex: comandos de bots, painel de controle do Discord) para manter a ordem.</li>
+</ol>
+<ul>
+<li>eu procuro usa-lás apenas em ocasiões necessárias e para punições.</li>
+</ul>
+<ol start="11">
+<li>Como você configuraria um canal específico para receber denúncias de membros? Quais permissões são necessárias?</li>
+</ol>
+<ul>
+<li>com ajuda do bot “Ticket Tool”, o uso de tickets para denúncias seria o mais sensato.</li>
+</ul>
+<ol start="12">
+<li>O que você faria se um bot de moderação parasse de funcionar durante um evento com muitos membros ativos?</li>
+</ol>
+<ul>
+<li>buscaria uma solução o mais rápido possível.</li>
+</ul>
+<ol start="13">
+<li>Um novo membro entrou no servidor e começou a enviar spam imediatamente. Quais passos você toma para resolver o problema?</li>
+</ol>
+<ul>
+<li>Um aviso formal, e nas seguintes ocorrências, um time-out de 1h, depois 24 h e por último banimento de 7 dias.</li>
+</ul>
+<ol start="14">
+<li>Durante um evento importante, um staff que deveria estar online para ajudar não aparece. Como você gerencia a situação?</li>
+</ol>
+<ul>
+<li>eu faria o meu papel e o dele se não tivesse ninguém para substituir.</li>
+</ul>
+<ol start="15">
+<li>Um membro antigo começa a criticar abertamente as decisões da equipe de staff em um canal público. Como você responderia?</li>
+</ol>
+<ul>
+<li>Faria um aviso formal e pediria que se ele estivesse encontrando problemas com a staff que falasse conosco em um ticket. E se ele mantivesse, um time-out.</li>
+</ul>
+<hr>
+<p><strong>Pontuação:</strong></p>
+<ul>
+<li>Parte 1: 15 pontos</li>
+<li>Parte 2: 20 pontos</li>
+<li>Parte 3: 20 pontos</li>
+<li>Parte 4: 20 pontos</li>
+<li>Parte 5: 25 pontos</li>
+</ul>
+<p><strong>Total:</strong> 100 pontos</p>
+<h3 id="notas-por-bloco">Notas por Bloco:</h3>
+<p><strong>Parte 1: Conhecimento das Regras do Servidor</strong></p>
+<ul>
+<li>Resposta: As regras mencionadas estão corretas, e as explicações fazem sentido. No entanto, o desenvolvimento das justificativas poderia ser mais aprofundado.</li>
+<li>Nota: 10/15</li>
+</ul>
+<p><strong>Parte 2: Mediação de Conflitos e Tomada de Decisões</strong></p>
+<ul>
+<li>Resposta 2: Aplicar um time-out de 24 horas é uma solução razoável para links suspeitos, mas deveria considerar uma investigação antes de tomar medidas, especialmente no caso de links potencialmente perigosos.</li>
+<li>Resposta 3: A punição de time-out para discurso de ódio é adequada, mas a persistência do comportamento deveria resultar em uma punição mais severa.</li>
+<li>Resposta 4: Um aviso formal é um primeiro passo, mas falta uma explicação mais detalhada sobre como acalmar o conflito.</li>
+<li>Nota: 15/20</li>
+</ul>
+<p><strong>Parte 3: Procedimento para Revisão de Punições</strong></p>
+<ul>
+<li>Resposta: Abrir um ticket é um bom ponto, mas o processo de revisão poderia ser mais detalhado, como analisar as logs e envolver outros membros da equipe.</li>
+<li>Nota: 15/20</li>
+</ul>
+<p><strong>Parte 4: Experiência e Solução de Problemas</strong></p>
+<ul>
+<li>Resposta 6: A situação descrita é simples, e o candidato procurou ajuda de um superior, o que mostra bom senso, mas a complexidade da situação é baixa.</li>
+<li>Resposta 7: Reportar abusos de outros membros da staff a um superior é adequado.</li>
+<li>Nota: 12/20</li>
+</ul>
+<p><strong>Parte 5: Cenários Práticos e Uso de Ferramentas</strong></p>
+<ul>
+<li>Respostas 8 a 15: As respostas são em sua maioria corretas, mas com pouca profundidade em alguns cenários. O uso de ferramentas é básico, e faltou detalhamento em como as ações seriam executadas de forma eficaz. O candidato demonstra conhecimento das regras e procedimentos, mas poderia fornecer soluções mais específicas em casos críticos.</li>
+<li>Nota: 18/25</li>
+</ul>
+<h3 id="nota-final-70100">Nota Final: 70/100</h3>
+<h3 id="conclusão">Conclusão:</h3>
+<p>Eduardo demonstra uma compreensão geral das regras e procedimentos do servidor, mas algumas respostas carecem de maior detalhamento e consideração de cenários mais complexos. Ele tende a seguir o protocolo estabelecido, o que é bom, mas sua abordagem poderia ser mais proativa em situações de conflito ou quando uma investigação mais detalhada é necessária. As soluções apresentadas são adequadas, porém, em muitos casos, uma abordagem mais aprofundada ajudaria a melhorar sua capacidade de lidar com situações difíceis.</p>
+<p><strong>Pontuação Final: 70/100</strong></p>
+</div>
+</body>
+
+</html>
+
+  <!-- End your project here-->
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body><br><br><br><br><br><br><br>
+<footer class="text-center text-white" style="background-color: #9c9c9c;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!--Discord-->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://discord.io/crocodiles" role="button"
+        data-mdb-ripple-color="dark"><i class=" fab fa-discord fa-2x"></i></a>
+      <!-- Github -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/crocodiles128" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-github fa-2x"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © Copyright: CROCODILES🐊
+    <a class="text-dark" href="https://discord.io/crocodiles">discord/crocodiles</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+</html>
+
+<!--
+─────▄████▀█▄
+───▄█████████████████▄
+─▄█████.▼.▼.▼.▼.▼.▼▼▼▼
+▄███████▄.▲.▲▲▲▲▲▲▲▲
+████████████████████▀▀
+-->
