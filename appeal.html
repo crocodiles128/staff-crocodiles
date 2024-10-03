@@ -11,28 +11,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet" />
     <title>Portal da EQUIPE - APPEALS</title>
-    <script>
-        // Função para verificar se o usuário está autenticado
-        function checkAuth() {
-            const token = localStorage.getItem('authToken');
-            if (!token) {
-                window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login se não estiver autenticado
-            }
-        }
-
-        // Função para fazer logout
-        function logout() {
-            localStorage.removeItem('authToken'); // Remove o token de autenticação
-            window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            checkAuth(); // Verifica a autenticação ao carregar a página
-
-            // Adiciona evento de logout ao botão de logout
-            document.getElementById('logoutButton').addEventListener('click', logout);
-        });
-    </script>
+    <script type="module">
+        import { initAuth } from './auth.js';
+        
+        initAuth(); // Inicializa a autenticação
+      </script>
     <style>
         .card-horizontal {
             display: flex;
