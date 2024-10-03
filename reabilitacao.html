@@ -22,29 +22,12 @@
   <!-- MDB -->
   <link rel="stylesheet" href="/css/css/mdb.min.css" />
   <title>Portal da EQUIPE</title>
+  <script type="module">
+    import { initAuth } from './auth.js';
+    
+    initAuth(); // Inicializa a autenticação
+  </script>
 </head>
-<script>
-  // Função para verificar se o usuário está autenticado
-  function checkAuth() {
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-      window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login se não estiver autenticado
-    }
-  }
-
-  // Função para fazer logout
-  function logout() {
-    localStorage.removeItem('authToken'); // Remove o token de autenticação
-    window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    checkAuth(); // Verifica a autenticação ao carregar a página
-
-    // Adiciona evento de logout ao botão de logout
-    document.getElementById('logoutButton').addEventListener('click', logout);
-  });
-</script>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
