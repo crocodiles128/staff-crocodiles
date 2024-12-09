@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet" />
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="/css/css/mdb.min.css" />
+  <title>Portal da EQUIPE</title>
+  <script>
+    // Função para verificar se o usuário está autenticado
+    function checkAuth() {
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login se não estiver autenticado
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+    // Verifica se o usuário está autenticado
+    const userName = localStorage.getItem('userName');
+    
+    // Verifica se o usuário é o Admin
+    if (userName !== 'borrachaquetudoapaga02') {
+      // Redireciona para a página inicial se não for Admin
+      window.location.href = '/staff-crocodiles/index.html';
+    }
+    
+    // Aqui você pode carregar os dados específicos do Admin
+    // e exibir as pontuações e resultados.
+  });
+    // Função para fazer logout
+    function logout() {
+      localStorage.removeItem('authToken'); // Remove o token de autenticação
+      window.location.href = '/staff-crocodiles/login.html'; // Redireciona para a página de login
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuth(); // Verifica a autenticação ao carregar a página
+
+      // Adiciona evento de logout ao botão de logout
+      document.getElementById('logoutButton').addEventListener('click', logout);
+    });
+  </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/staff-crocodiles/index.html">CROCODILES🐊</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/staff-crocodiles/index.html">Portal da EQUIPE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/staff-crocodiles/moderacao-home.html">Moderação</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/staff-crocodiles/promotoria-de-eventos.html">Promotoria de Eventos</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          CROCODILES🐊: a gama de servidores para criar amizades
+        </span>
+        <button id="logoutButton" class="btn btn-danger ms-2">Logout</button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Start your project here-->
+<br><br><br><br>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="olá-borrachaquetudoapaga02-respostas-e-pontuação">Olá, <em>borrachaquetudoapaga02</em> Respostas e pontuação:</h2>
+<h4 id="parte-1-conhecimento-das-regras-do-servidor"><strong>Parte 1: Conhecimento das Regras do Servidor</strong></h4>
+<ol>
+<li><strong>Resposta:</strong> As regras selecionadas são relevantes, e Vinicius traz justificativas baseadas na segurança e conformidade com as normas do Discord e leis brasileiras. Ele também destaca a importância de manter um ambiente seguro e confiável, o que demonstra um bom entendimento do propósito das regras.<br>
+<strong>Observação:</strong> Faltou mencionar a aplicação em cenários práticos para fortalecer a resposta.<br>
+<strong>Nota:</strong> 13/15</li>
+</ol>
+<hr>
+<h4 id="parte-2-mediação-de-conflitos-e-tomada-de-decisões"><strong>Parte 2: Mediação de Conflitos e Tomada de Decisões</strong></h4>
+<ol start="2">
+<li>
+<p><strong>Resposta:</strong> A decisão de apagar a mensagem e banir o membro imediatamente pode ser correta em casos de spam ou links NSFW, mas não é ideal sem investigar se o link realmente violava as regras.<br>
+<strong>Nota:</strong> 8/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> Aplicar um time-out e comunicar ao membro a próxima punição demonstra consistência com as diretrizes. Porém, o candidato deveria considerar medidas mais definitivas se o discurso de ódio continuar.<br>
+<strong>Nota:</strong> 8/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> A abordagem de mutar os envolvidos e intervir é adequada, mas faltou detalhar um método de acalmar a situação ou conduzir a conversa de forma construtiva.<br>
+<strong>Nota:</strong> 6/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> A ideia de solicitar uma votação para o pedido de unban é interessante, mas carece de explicação sobre o procedimento e a investigação prévia.<br>
+<strong>Nota:</strong> 7/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> A situação descrita demonstra boa capacidade de mediar conflitos em um ambiente externo ao Discord, o que é relevante para o contexto da pergunta.<br>
+<strong>Nota:</strong> 8/10</p>
+</li>
+</ol>
+<p><strong>Nota total do bloco:</strong> 37/50</p>
+<hr>
+<h4 id="parte-3-procedimento-e-ética"><strong>Parte 3: Procedimento e Ética</strong></h4>
+<ol start="7">
+<li>
+<p><strong>Resposta:</strong> A abordagem varia conforme a hierarquia, o que demonstra flexibilidade e consideração pela cadeia de comando. No entanto, ele deveria reforçar que ações como remoção de cargos devem ser decididas em grupo para evitar abuso de autoridade.<br>
+<strong>Nota:</strong> 7/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> Vinicius demonstra um bom entendimento de como avaliar a gravidade de infrações e aplicar punições. Ele também cita o processo de revisão de punições, o que é um ponto positivo.<br>
+<strong>Nota:</strong> 9/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> Ele demonstra comprometimento com a imparcialidade, independentemente de laços pessoais, o que é fundamental para a ética da moderação.<br>
+<strong>Nota:</strong> 10/10</p>
+</li>
+</ol>
+<p><strong>Nota total do bloco:</strong> 26/30</p>
+<hr>
+<h4 id="parte-4-uso-de-ferramentas-e-planejamento"><strong>Parte 4: Uso de Ferramentas e Planejamento</strong></h4>
+<ol start="10">
+<li>
+<p><strong>Resposta:</strong> A explicação sobre o uso de comandos básicos é funcional, mas ele poderia explorar ferramentas mais avançadas ou estratégias que mostrem um domínio técnico maior.<br>
+<strong>Nota:</strong> 6/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> A proposta de usar comandos no Dyno para denúncias é criativa, mas falta clareza sobre como garantir que as denúncias sejam verificadas e analisadas corretamente.<br>
+<strong>Nota:</strong> 7/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> A resposta demonstra atenção aos detalhes e prontidão para identificar possíveis ataques, mas poderia incluir medidas preventivas ou coordenação com outros staffs.<br>
+<strong>Nota:</strong> 7/10</p>
+</li>
+</ol>
+<p><strong>Nota total do bloco:</strong> 20/30</p>
+<hr>
+<h4 id="parte-5-resolução-de-problemas-e-comunicação"><strong>Parte 5: Resolução de Problemas e Comunicação</strong></h4>
+<ol start="13">
+<li>
+<p><strong>Resposta:</strong> A decisão de mutar e dar avisos é um bom início, mas ele deveria seguir o Guia do servidor para definir uma punição consistente e detalhar melhor o processo.<br>
+<strong>Nota:</strong> 7/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> Assumir a responsabilidade é um bom ponto, mas ele poderia explicar como garantiria o andamento eficiente do evento.<br>
+<strong>Nota:</strong> 6/10</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> Pedir que o membro use o ticket para reclamações demonstra boa comunicação, mas faltou abordar como lidar com possíveis tensões públicas durante o processo.<br>
+<strong>Nota:</strong> 7/10</p>
+</li>
+</ol>
+<p><strong>Nota total do bloco:</strong> 20/30</p>
+<hr>
+<h3 id="pontuação-final-116155-75100"><strong>Pontuação Final: 116/155 (75/100)</strong></h3>
+<hr>
+<h3 id="conclusão"><strong>Conclusão:</strong></h3>
+<p>Vinicius demonstra um bom conhecimento das regras e uma abordagem ética em suas respostas. Ele destaca a importância de seguir os Guias e tem um entendimento funcional do uso de ferramentas de moderação. No entanto, em algumas situações práticas, ele carece de profundidade e poderia desenvolver soluções mais estratégicas e bem elaboradas.</p>
+<p><strong>Pontos Fortes:</strong></p>
+<ul>
+<li>Comprometimento com a imparcialidade.</li>
+<li>Boa compreensão da gravidade das infrações e como aplicar punições.</li>
+<li>Atenção à segurança do servidor.</li>
+</ul>
+<p><strong>Pontos a Melhorar:</strong></p>
+<ul>
+<li>Investigar antes de aplicar punições diretas.</li>
+<li>Desenvolver respostas mais detalhadas para situações complexas.</li>
+<li>Explorar mais o uso de ferramentas e estratégias preventivas.</li>
+</ul>
+<p><strong>Recomendação:</strong> Apesar de algumas lacunas, Vinicius mostra potencial para ser um staff confiável e comprometido, sendo um bom candidato para cargos iniciais na equipe, com supervisão.</p>
+</div>
+</body>
+
+</html>
+
+
+  <!-- End your project here-->
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body><br><br><br><br><br><br><br>
+<footer class="text-center text-white" style="background-color: #9c9c9c;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!--Discord-->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://discord.io/crocodiles" role="button"
+        data-mdb-ripple-color="dark"><i class=" fab fa-discord fa-2x"></i></a>
+      <!-- Github -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/crocodiles128" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-github fa-2x"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © Copyright: CROCODILES🐊
+    <a class="text-dark" href="https://discord.io/crocodiles">discord/crocodiles</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+</html>
+
+<!--
+─────▄████▀█▄
+───▄█████████████████▄
+─▄█████.▼.▼.▼.▼.▼.▼▼▼▼
+▄███████▄.▲.▲▲▲▲▲▲▲▲
+████████████████████▀▀
+-->
